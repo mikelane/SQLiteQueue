@@ -72,7 +72,7 @@ class SQLiteQueue {
         } else {
             if (!$this->dbh) {
                 $this->dbh = new PDO('sqlite:'.$this->file_db);
-                $this->dbh->exec('CREATE TABLE IF NOT EXISTS queue(id INTEGER PRIMARY KEY AUTOINCREMENT, date TIMESTAMP NOT NULL default CURRENT_TIMESTAMP, item BLOB)');
+                $this->dbh->exec('CREATE TABLE IF NOT EXISTS queue(id INTEGER PRIMARY KEY AUTOINCREMENT, date TIMESTAMP NOT NULL default CURRENT_TIMESTAMP, item BLOB UNIQUE)');
             }
         }
     }
